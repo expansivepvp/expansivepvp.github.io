@@ -1,15 +1,15 @@
-var express = require('express');
+let express = require('express');
 
-var app = express();
-var router = express.Router();
+let app = express();
+let router = express.Router();
 
-var logger = require('morgan'); // for debugging messages
-var path = require('path'); // for combining file path names
+let logger = require('morgan'); // for debugging messages
+let path = require('path'); // for combining file path names
 
 app.set('view engine', 'ejs');
 app.use(logger('dev'));
 
-var routes = require('./routes/index');
+let routes = require('./routes/index');
 app.use('/', routes);
 
 // serve up static files using folder names within public
