@@ -1,0 +1,28 @@
+{
+  "name": "multiplayer-test",
+  "version": "1.0.0",
+  "description": "Multiplayer PVP game with a focus on strategic combat",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/expansivepvp/expansivepvp.github.io.git"
+  },
+  "keywords": [
+    "PVP",
+    "Multiplayer",
+    "Game"
+  ],
+  "author": "Garrett Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/expansivepvp/expansivepvp.github.io/issues"
+  },
+  "homepage": "https://github.com/expansivepvp/expansivepvp.github.io#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  }
+}
