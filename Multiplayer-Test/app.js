@@ -1,6 +1,9 @@
 let express = require('express');
-
 let app = express();
+var server = require('http').Server(app);
+var io = require('socket.io').listen(server);
+
+app.use(express.static('node_modules'));
 let router = express.Router();
 
 let logger = require('morgan'); // for debugging messages
@@ -20,6 +23,12 @@ app.use('*', function(req, res) {
   res.status(404).send('404');
 });
 
-app.listen(8080, '0.0.0.0', function() {
+let players = {};
+let connectionHandler = require('./connections');
+io.on('connection', function(socket) {
+    connectionHandler(io, socket, players);
+});
+
+server.listen(8080, 'localhost', function() {
   console.log('Running on port 8080...');
 });
