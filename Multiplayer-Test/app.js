@@ -12,11 +12,11 @@ let path = require('path'); // for combining file path names
 app.set('view engine', 'ejs');
 app.use(logger('dev'));
 
-let routes = require('./routes/index');
-app.use('/', routes);
+// serve up static files using folder names within src/client
+app.use(express.static('src/client'));
 
-// serve up static files using folder names within public
-app.use(express.static('public'));
+let routes = require('./src/server/routes/index');
+app.use('/', routes);
 
 // 404
 app.use('*', function(req, res) {
@@ -24,7 +24,7 @@ app.use('*', function(req, res) {
 });
 
 let players = {};
-let connectionHandler = require('./connections');
+let connectionHandler = require('./src/server/connections');
 io.on('connection', function(socket) {
     connectionHandler(io, socket, players);
 });
